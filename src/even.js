@@ -15,7 +15,7 @@ const evenGame = (name) => {
 
         if (booleanAnswer === trueBooleanAnswer && (answer === "yes" || answer === "no")) {
             console.log('Correct!')
-            
+            completed = true;
         } else {
             console.log(`'${answer}' is wrong answer ;(. Correct answer was '${trueAnswer}'.`);
             break;
