@@ -8,7 +8,7 @@ const calculator = (name) => {
   let countOfRightAnswers = 0;
   console.log('What is the result of the expression?');
   let i = 0;
-  for (i = 0; i < 3; i++) {
+  for (i = 0; i < 3; i += 1) {
     const num1 = Math.floor(Math.random() * 100);
     const num2 = Math.floor(Math.random() * 100);
 
@@ -23,7 +23,7 @@ const calculator = (name) => {
       result = num1 * num2;
     }
     if (ind === 2) {
-      sign = "-";
+      sign = '-';
       console.log(`Question: ${num1} ${sign} ${num2}`);
       result = num1 - num2;
     }
@@ -39,7 +39,7 @@ const calculator = (name) => {
       countOfRightAnswers += 1;
     } else {
       console.log(
-        `'${answer}' is wrong answer ;(. Correct answer was '${result}'.`
+        `'${answer}' is wrong answer ;(. Correct answer was '${result}'.`,
       );
       break;
     }
