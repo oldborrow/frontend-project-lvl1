@@ -7,6 +7,7 @@ function getRandomInt(min, max) {
 }
 
 const calculator = (name) => {
+    let countOfRightAnswers = 0;
     console.log('What is the result of the expression?')
     let i = 0;
     for (i = 0; i < 3; i++) {
@@ -37,13 +38,17 @@ const calculator = (name) => {
 
         if (answer === `${result}`) {
             console.log("Correct!");
+            countOfRightAnswers += 1;
         } else {
             console.log(`'${answer}' is wrong answer ;(. Correct answer was '${result}'.`);
-            console.log(`Let's try again, ${name}!`)
-            i = -1;
+            break;
         }
     }
-    console.log(`Congratulations, ${name}!`);
+    if (countOfRightAnswers === 3) {
+        console.log(`Congratulations, ${name}!`);
+    } else {
+        console.log(`Let's try again, ${name}!`);
+    }
 }
 
 export default calculator;
