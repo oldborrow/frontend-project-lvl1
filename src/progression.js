@@ -1,6 +1,7 @@
 import readlineSync from 'readline-sync';
 
 const progression = (name) => {
+    let countOfRightAnswers = 0;
     console.log('What number is missing in the progression?');
     for (let i = 0; i < 3; i++) {
         let num1 = Math.floor(Math.random() * 10);
@@ -16,11 +17,16 @@ const progression = (name) => {
         const userAnswer = readlineSync.question('Your answer: ');
         if (`${trueAnswer}` === userAnswer) {
             console.log('Correct!');
+            countOfRightAnswers += 1;
         } else {
             console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${trueAnswer}'`);
-            console.log(`Let's try again, ${name}!`);
-            i = -1;
+            break;
         }
+    }
+    if (countOfRightAnswers === 3) {
+        console.log(`Congratulations, ${name}!`);
+    } else {
+        console.log(`Let's try again, ${name}!`);
     }
 }
 
