@@ -7,6 +7,7 @@ function isPrime(num) {
 }
 
 const prime = (name) => {
+    let countOfRightAnswers = 0;
     console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
     for (let i = 0; i < 3; i++) {
         let num = Math.floor(Math.random() * 100);
@@ -15,13 +16,17 @@ const prime = (name) => {
         let trueAnswer = isPrime(num) === true ? 'yes' : 'no';
         if (trueAnswer === userAnswer && (userAnswer === 'yes' || userAnswer === 'no')) {
             console.log('Correct!');
+            countOfRightAnswers += 1;
         } else {
-            i = -1;
             console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${trueAnswer}'`);
-            console.log(`Let's try again, ${name}`);
+            break;
         }
     }
-    console.log(`Congratulations, ${name}`);
+    if (countOfRightAnswers === 3) {
+        console.log(`Congratulations, ${name}!`);
+    } else {
+        console.log(`Let's try again, ${name}!`);
+    }
 }
 
 export default prime;
