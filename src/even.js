@@ -2,6 +2,7 @@ import readlineSync from 'readline-sync';
 
 let i = 0;
 const evenGame = (name) => {
+    let completed = false;
     console.log('Answer "yes" if the number is even, otherwise answer "no".');
     for (i = 0; i < 3; i++) {
         let number = Math.floor(Math.random() * 100);
@@ -17,12 +18,14 @@ const evenGame = (name) => {
             
         } else {
             console.log(`'${answer}' is wrong answer ;(. Correct answer was '${trueAnswer}'.`);
-            console.log(`Let's try again, ${name}!`);
-            i = -1;
-            
+            break;
         }
     }
-    console.log(`Congratulations, ${name}!`);
+    if (completed) {
+        console.log(`Congratulations, ${name}!`);
+    } else {
+        console.log(`Let's try again, ${name}!`);
+    }
 }
 
 export default evenGame;
