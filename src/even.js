@@ -2,8 +2,9 @@ import readlineSync from 'readline-sync';
 
 let i = 0;
 const evenGame = (name) => {
-    let completed = false;
+
     console.log('Answer "yes" if the number is even, otherwise answer "no".');
+    let countOfRightAnswers = 0;
     for (i = 0; i < 3; i++) {
         let number = Math.floor(Math.random() * 100);
         console.log(`Question: ${number}`);
@@ -14,14 +15,14 @@ const evenGame = (name) => {
         const booleanAnswer = answer === 'yes' ? true : false;
 
         if (booleanAnswer === trueBooleanAnswer && (answer === "yes" || answer === "no")) {
-            console.log('Correct!')
-            completed = true;
+            console.log('Correct!');
+            countOfRightAnswers += 1;
         } else {
             console.log(`'${answer}' is wrong answer ;(. Correct answer was '${trueAnswer}'.`);
             break;
         }
     }
-    if (completed) {
+    if (countOfRightAnswers === 3) {
         console.log(`Congratulations, ${name}!`);
     } else {
         console.log(`Let's try again, ${name}!`);
